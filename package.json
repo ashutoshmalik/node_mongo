@@ -1,0 +1,19 @@
+{
+  "name": "node_mongo",
+  "version": "1.0.0",
+  "description": "node and mongodb CRUD",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ashutoshmalik/node_mongo.git"
+  },
+  "author": "ashutosh",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/ashutoshmalik/node_mongo/issues"
+  },
+  "homepage": "https://github.com/ashutoshmalik/node_mongo#readme"
+}
