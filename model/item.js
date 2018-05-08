@@ -8,4 +8,4 @@ var ItemSchema = new Schema({
 	photo : String
 });
 
-module.exports = mongoose.model('Item', ItemSchema);
+module.exports = mongoose.model('item', ItemSchema);
