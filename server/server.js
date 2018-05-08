@@ -26,6 +26,7 @@ router.use(function(req, res, next) {
 	next();
 })
 
+//Create new item
 router.route('/items').post(function(req, res) {
 	
 	var i = new item();
@@ -33,8 +34,6 @@ router.route('/items').post(function(req, res) {
 	i.price = req.body.price;
 	i.instock = req.body.instock;
 	i.photo = req.body.photo;
-	
-	console.log('Item:' + i.title);
 	
 	i.save(function (err) {
 		if(err) {
@@ -45,6 +44,7 @@ router.route('/items').post(function(req, res) {
 });
 
 
+//Return all the items
 router.route('/items').get(function (req, res) {
 	item.find(function (err, items) {
 		if (err) {
@@ -52,6 +52,27 @@ router.route('/items').get(function (req, res) {
 		} 
 		res.send(items);
 	});
+});
+
+//Update the item
+router.route('/items/:item_id').put(function (req, res) {
+	item.findById(req.param.item_id, function(err, item) {
+		if (err) {
+			res.send(err);
+		} 
+		
+		item.title = req.body.title;
+		item.price = req.body.price;
+		item.instock = req.body.instock;
+		item.photo = req.body.photo;
+		
+		item.save(function (err) {
+			if (err) {
+				res.send(err);				
+			}
+			res.send({message: 'Item Updated !'});
+		})
+	}) 
 });
 
 console.log('REST api is running at ' + port);
