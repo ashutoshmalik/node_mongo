@@ -39,7 +39,7 @@ router.route('/items').post(function(req, res) {
 		if(err) {
 			res.send(err);
 		}
-		res.send({message: 'Item Created !'});
+		res.send({message: 'Item Created!'});
 	})
 });
 
@@ -70,10 +70,21 @@ router.route('/items/:item_id').put(function (req, res) {
 			if (err) {
 				res.send(err);				
 			}
-			res.send({message: 'Item Updated !'});
+			res.json({message: 'Item Updated!'});
 		})
 	}) 
 });
+
+
+router.route('/items/:item_id').delete(function(req, res) {
+	item.remove({_id:req.param.item_id}, function(err, item) {
+		if(err) {
+			res.send(err);
+		}
+		
+		res.json({message: 'Item Deleted!'});
+	})
+})
 
 console.log('REST api is running at ' + port);
 
