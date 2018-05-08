@@ -27,7 +27,6 @@ router.use(function(req, res, next) {
 })
 
 router.route('/items').post(function(req, res) {
-	alert("");
 	var i = new item();
 	i.title = req.body.title;
 	i.price = req.body.price;
